@@ -14,9 +14,14 @@ RUN \
 # install packages
  apt-get update && \
  apt-get install -y \
-	libcurl3 \
-	nzbdrone && \
+  libcurl3 \
+  nzbdrone paxctl && \
 
+  paxctl -c /usr/bin/mono && \
+  paxctl -c /usr/bin/mono-sgen && \
+  paxctl -m /usr/bin/mono && \
+  paxctl -m /usr/bin/mono-sgen && \
+  
 # cleanup
  apt-get clean && \
  rm -rf \
